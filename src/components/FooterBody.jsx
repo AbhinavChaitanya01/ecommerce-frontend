@@ -1,0 +1,64 @@
+import React from 'react';
+
+const FooterBody = () => {
+  const currentYear = new Date().getFullYear();
+
+  const linkStyle = {
+    textDecoration: 'none', // Remove underline
+    color: '#fff',         // Set the text color to white
+  };
+
+  return (
+    <footer style={{
+      backgroundColor: '#333',
+      color: '#fff',
+      padding: '10px',
+      paddingBottom: 0,
+      position: 'fixed',
+      bottom: 0,
+      width: '100%',
+      textAlign: 'center',
+    }}>
+      <div style={{ display: 'flex' }}>
+        {/* First Div */}
+        <div style={{ flex: 1, marginRight: '10px' }}>
+          <p style={{ margin: '5px 0', fontSize: '20px', fontWeight: 'bold' }}>Get to know us</p>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}><a href="/" style={linkStyle}>Frequently asked questions</a></p>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}><a href="/" style={linkStyle}>About us</a></p>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}><a href="/" style={linkStyle}>Opportunities at Get to Style</a></p>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}><a href="/" style={linkStyle}>Press releases</a></p>
+        </div>
+
+        {/* Second Div */}
+        <div style={{ flex: 1, marginRight: '10px' }}>
+          <p style={{ margin: '5px 0', fontSize: '20px', fontWeight: 'bold' }}>Make money with us</p>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}><a href="/" style={linkStyle}>Join as a seller</a></p>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}><a href="/" style={linkStyle}>Protect your brand</a></p>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}><a href="/" style={linkStyle}>Sell under our brand</a></p>
+        </div>
+
+        {/* Third Div */}
+        <div style={{ flex: 1 }}>
+          <p style={{ margin: '5px 0', fontSize: '20px', fontWeight: 'bold' }}>Connect with us</p>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}><a href="/" style={linkStyle}>Facebook</a></p>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}><a href="/" style={linkStyle}>Instagram</a></p>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}><a href="/" style={linkStyle}>Twitter</a></p>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}><a href="/" style={linkStyle}>Contact Us</a></p>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}><a href="/" style={linkStyle}>Help and support</a></p>
+        </div>
+      </div>
+      <div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <p style={{ margin: '5px 10px', fontSize: '14px' }}><a href="/" style={linkStyle}>Condition of use and sale</a></p>
+          <p style={{ margin: '5px 10px', fontSize: '14px' }}><a href="/" style={linkStyle}>Privacy Notice</a></p>
+          <p style={{ margin: '5px 10px', fontSize: '14px' }}><a href="/" style={linkStyle}>Internet based ads</a></p>
+        </div>
+        <p style={{ fontSize: '14px' }}>
+          &copy; {currentYear}
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+export default FooterBody;
