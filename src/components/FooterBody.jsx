@@ -34,6 +34,7 @@ const FooterBody = () => {
       textAlign: 'center',
     }}>
       <div style={{ display: 'flex' }}>
+        {/* First Div */}
         <div style={columnStyle}>
           <p style={headingStyle}>Get to know us</p>
           <p style={sectionStyle}><a href="/" style={linkStyle}>Frequently asked questions</a></p>
