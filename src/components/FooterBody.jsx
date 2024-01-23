@@ -29,13 +29,12 @@ const FooterBody = () => {
       backgroundColor: '#333',
       color: '#fff',
       padding: '10px',
-      paddingBottom: 0,
-      position: 'relative',
-      bottom: 0,
+      marginBottom:0,
       width: '100%',
       textAlign: 'center',
     }}>
       <div style={{ display: 'flex' }}>
+        {/* First Div */}
         <div style={columnStyle}>
           <p style={headingStyle}>Get to know us</p>
           <p style={sectionStyle}><a href="/" style={linkStyle}>Frequently asked questions</a></p>
