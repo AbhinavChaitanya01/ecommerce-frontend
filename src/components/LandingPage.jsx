@@ -2,6 +2,7 @@ import React from 'react'
 const LandingPage = () => {
   return (
     <div>
+    Landing page
       {/* <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-inner">
         <div className="carousel-item active">
