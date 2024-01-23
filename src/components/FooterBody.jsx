@@ -29,9 +29,7 @@ const FooterBody = () => {
       backgroundColor: '#333',
       color: '#fff',
       padding: '10px',
-      paddingBottom: 0,
-      position: 'absolute',
-      bottom: 0,
+      marginBottom:0,
       width: '100%',
       textAlign: 'center',
     }}>

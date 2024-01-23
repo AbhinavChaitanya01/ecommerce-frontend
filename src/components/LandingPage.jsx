@@ -1,7 +1,7 @@
 import React from 'react'
 const LandingPage = () => {
   return (
-    <div>
+    <div style={{minHeight:"100vh"}}>
     Landing page
       {/* <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-inner">
