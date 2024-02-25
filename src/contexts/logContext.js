@@ -1,3 +1,3 @@
 import { createContext } from "react";
-const LogContext = createContext(false);
+const LogContext = createContext();
 export default LogContext;
