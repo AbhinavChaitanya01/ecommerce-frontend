@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { TextField, MenuItem, Button } from '@mui/material';
+import LogContext from '../contexts/logContext';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpPage = () => {
+    const navigate = useNavigate();
+    const {setLog,setIsSeller} = useContext(LogContext);
+
     const url = "https://e-commerce-cyan-nine.vercel.app/api";
     const [userCredentials, setUserCredentials] = useState({ buyerName: "", ownerName: "", vendorName: "", email: "", password: "", type: "Buyer" });
 
@@ -25,6 +30,11 @@ const SignUpPage = () => {
             console.log(res);
             if (res.status) {
                 localStorage.setItem("Token", res.token);
+                setLog(true);
+                if(userCredentials.type === "Seller") setIsSeller(true);
+                else setIsSeller(false);
+                navigate('/');
+
             } else {
                 console.log(res.message);
             }
