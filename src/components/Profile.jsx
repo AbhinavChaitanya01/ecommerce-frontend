@@ -6,7 +6,7 @@ const Profile = () => {
   const { isSeller } = context;
   const [profile, setProfile] = useState({
     avatarImg: "",
-    name: "",
+    buyerName: "",
     ownerName: "",
     vendorName: "",
     mobile: "",
@@ -57,12 +57,9 @@ const Profile = () => {
         console.log("No file selected.");
         return;
       }
-  
-      // Prepare form data to send the image file
       const formData = new FormData();
       formData.append('avatarImg', selectedFile);
   
-      // Send the image file to the server
       const response = await fetch(`${url}/buyers/updateProfile`,
         {
           method: isSeller ? "PUT" : "POST",
@@ -73,11 +70,9 @@ const Profile = () => {
         }
       );
   
-      // Check if the request was successful
       if (response.status) {
         fetchProfile();
       } else {
-        // Handle unsuccessful response
         console.error("Failed to update profile:", response.statusText);
       }
     } catch (error) {
@@ -119,6 +114,7 @@ const Profile = () => {
         }
       );
       const json = await response.json();
+      console.log(json);
       alert("Profile updated successfully");
     } catch (error) {
       console.error("Error updating profile:", error);
@@ -126,7 +122,11 @@ const Profile = () => {
   };
 
   return (
-    <div className="container my-4">
+
+    <>
+    {
+      profile ?  
+      (<div className="container my-4">
       <div className="row justify-content-center mt-4">
           <div className="card">
             <div className="card-body">
@@ -149,8 +149,8 @@ const Profile = () => {
                 
               { !isSeller && (
                 <div className="mb-3">
-                  <label for="name" className="form-label">Name:</label>
-                  <input type="text" className="form-control" name="name" value={profile.name} onChange={handleChange}/>
+                  <label for="buyerName" className="form-label">Name:</label>
+                  <input type="text" className="form-control" name="buyerName" value={profile.buyerName} onChange={handleChange}/>
                 </div>
                   )
               }
@@ -171,7 +171,7 @@ const Profile = () => {
 
               <div className="mb-3">
                 <label for="email" className="form-label">Email:</label>
-                <input type="text" className="form-control" name="email" value={profile.email} onChange={handleChange}/>
+                <input type="text" className="form-control" name="email" value={profile.email}/>
               </div>
 
               <div className="mb-3">
@@ -180,7 +180,7 @@ const Profile = () => {
               </div>
 
               { isSeller && (
-                  <div className="mb-3">
+                <div className="mb-3">
                     <label for="gstNumber" className="form-label">GST Number:</label>
                     <input type="text" className="form-control" name="gstNumber" value={profile.gstNumber} onChange={handleChange}/>
                   </div>
@@ -216,7 +216,10 @@ const Profile = () => {
           </div>
             <button className='btn btn-dark m-4 w-50' onClick={updateUser} >Update Changes</button>
       </div>
-    </div>
+    </div>) : (<p className='fs-1 text-center'>Please Login</p>)
+  }
+  </>
+
   );
 };
 
