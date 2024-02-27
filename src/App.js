@@ -8,7 +8,7 @@ import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import LogContext from './contexts/logContext';
 import Profile from './components/Profile';
-
+import AboutPage from './components/AboutPage';
 function App() {
   const Token = localStorage.getItem('Token');
   const [log, setLog] = useState(Token !== null && Token !== "");
@@ -24,6 +24,7 @@ function App() {
             <Route exact path="/login" element={<LoginPage/>}></Route>
             <Route exact path="/signUp" element={<SignUpPage/>}></Route>
             <Route exact path="/profile" element={<Profile/>}></Route>
+            <Route exact path="/about" element={<AboutPage/>}></Route>
           </Routes>
           <FooterBody />
         </LogContext.Provider>
