@@ -14,12 +14,14 @@ function App() {
   const Token = localStorage.getItem('Token');
   const [log, setLog] = useState(Token !== null && Token !== "");
   const [isSeller, setIsSeller] = useState(false);
+  const [email, setEmail] = useState("");
 
   return (
     <div>
       <Router>
-        <LogContext.Provider value={{log, setLog, isSeller, setIsSeller}}>
+        <LogContext.Provider value={{log, setLog, isSeller, setIsSeller, email, setEmail}}>
           <Navbar log={log}/>
+          {console.log(log)};
           <Routes>
             <Route exact path="/" element={<LandingPage/>}></Route>
             <Route exact path="/login" element={<LoginPage/>}></Route>

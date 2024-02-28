@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const url = "https://e-commerce-cyan-nine.vercel.app/api";
 
   useEffect(() => {
-    const FetchProducts = async () => {
+    const fetchProducts = async () => {
       try {
         const response = await fetch(`${url}/products/getProducts`, {
           method: "GET",
         });
         const json = await response.json();
         setProducts(json.message);
-        console.log(json.message);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
-    FetchProducts();
+    fetchProducts();
   }, []);
 
   const [activeIndexes, setActiveIndexes] = useState({});
@@ -41,13 +42,17 @@ const LandingPage = () => {
     });
   };
 
+  const handleProductClicked = (productId) => {
+    navigate(`/product/${productId}`);
+  };
+
   return (
     <>
       <div className="row m-4">
         {products.length > 0 &&
           products.map((element, idx) => (
             <div className="col-md-3" key={idx}>
-              <div className="card m-2" style={{ width: "18rem" }}>
+              <div className="card m-2" style={{ width: "18rem", cursor: 'pointer' }}>
                 <div className="card-body">
                   <div
                     id={`carousel-${idx}`}
@@ -92,9 +97,11 @@ const LandingPage = () => {
                       <span className="sr-only">Next</span>
                     </a>
                   </div>
-                  <h5 className="card-title fw-bolder">{element.productName}</h5>
-                  <h5 className="card-title fw-bolder">Rs{element.price}/-</h5>
-                  <p className="card-text fw-medium">{element.description}</p>
+                  <div  onClick={() => handleProductClicked(element._id)}>
+                    <h5 className="card-title fw-bolder">{element.productName}</h5>
+                    <h5 className="card-title fw-bolder">Rs{element.price}/-</h5>
+                    <p className="card-text fw-medium">{element.description}</p>
+                  </div>
                 </div>
               </div>
             </div>

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
     const navigate = useNavigate();
-    const {setLog,setIsSeller} = useContext(LogContext);
+    const {setLog,setIsSeller,setEmail} = useContext(LogContext);
 
     const url = "https://e-commerce-cyan-nine.vercel.app/api";
     const [userCredentials, setUserCredentials] = useState({ email: "", password: "", type: "" });
@@ -31,6 +31,7 @@ const LoginPage = () => {
                 setLog(true);
                 if(userCredentials.type === "Seller") setIsSeller(true);
                 else setIsSeller(false);
+                setEmail(userCredentials.email);
                 navigate('/')
                 
             } else {

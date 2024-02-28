@@ -149,7 +149,7 @@ const Profile = () => {
                 
               { !isSeller && (
                 <div className="mb-3">
-                  <label for="buyerName" className="form-label">Name:</label>
+                  <label htmlFor="buyerName" className="form-label">Name:</label>
                   <input type="text" className="form-control" name="buyerName" value={profile.buyerName} onChange={handleChange}/>
                 </div>
                   )
@@ -157,31 +157,31 @@ const Profile = () => {
 
               { isSeller && (
                 <div className="mb-3">
-                  <label for="ownerName" className="form-label">Name:</label>
+                  <label htmlFor="ownerName" className="form-label">Name:</label>
                   <input type="text" className="form-control" name="ownerName" value={profile.ownerName} onChange={handleChange}/>
                 </div> 
               )}
 
               { isSeller && (
                 <div className="mb-3">
-                  <label for="vendorName" className="form-label">Owner Name:</label>
+                  <label htmlFor="vendorName" className="form-label">Owner Name:</label>
                   <input type="text" className="form-control" name="vendorName" value={profile.vendorName} onChange={handleChange}/>
                 </div>
               )}
 
               <div className="mb-3">
-                <label for="email" className="form-label">Email:</label>
+                <label htmlFor="email" className="form-label">Email:</label>
                 <input type="text" className="form-control" name="email" value={profile.email}/>
               </div>
 
               <div className="mb-3">
-                <label for="mobile" className="form-label">Mobile:</label>
+                <label htmlFor="mobile" className="form-label">Mobile:</label>
                 <input type="text" className="form-control" name="mobile" value={profile.mobile} onChange={handleChange}/>
               </div>
 
               { isSeller && (
                 <div className="mb-3">
-                    <label for="gstNumber" className="form-label">GST Number:</label>
+                    <label htmlFor="gstNumber" className="form-label">GST Number:</label>
                     <input type="text" className="form-control" name="gstNumber" value={profile.gstNumber} onChange={handleChange}/>
                   </div>
               )}
@@ -189,27 +189,27 @@ const Profile = () => {
               <p className='text-danger'> {isSeller ? "Ware House Address" : "Delivery Address" }</p>
               
               <div className="mb-3">
-                <label for="firstLine" className="form-label">FirstLine:</label>
+                <label htmlFor="firstLine" className="form-label">FirstLine:</label>
                 <input type="text" className="form-control" name="address.firstLine" value={profile.address.firstLine} onChange={handleChange}/>
               </div>
 
               <div className="mb-3">
-                <label for="secondLine" className="form-label">SecondLine:</label>
+                <label htmlFor="secondLine" className="form-label">SecondLine:</label>
                 <input type="text" className="form-control" name="address.secondLine" value={profile.address.secondLine} onChange={handleChange}/>
               </div>
 
               <div className="mb-3">
-                <label for="landmark" className="form-label">Landmark:</label>
+                <label htmlFor="landmark" className="form-label">Landmark:</label>
                 <input type="text" className="form-control" name="address.landmark" value={profile.address.landmark} onChange={handleChange}/>
               </div>
 
               <div className="mb-3">
-                <label for="city" className="form-label">City:</label>
+                <label htmlFor="city" className="form-label">City:</label>
                 <input type="text" className="form-control" name="address.city" value={profile.address.city} onChange={handleChange}/>
               </div>
 
               <div className="mb-3">
-                <label for="pincode" className="form-label">Pincode:</label>
+                <label htmlFor="pincode" className="form-label">Pincode:</label>
                 <input type="text" className="form-control" name="address.pincode" value={profile.address.pincode} onChange={handleChange}/>
               </div>
             </div>
