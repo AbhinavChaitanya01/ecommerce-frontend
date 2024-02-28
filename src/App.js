@@ -8,22 +8,26 @@ import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import LogContext from './contexts/logContext';
 import Profile from './components/Profile';
+import { ProductDetails } from './components/ProductDetails';
 
 function App() {
   const Token = localStorage.getItem('Token');
   const [log, setLog] = useState(Token !== null && Token !== "");
   const [isSeller, setIsSeller] = useState(false);
+  const [email, setEmail] = useState("");
 
   return (
     <div>
       <Router>
-        <LogContext.Provider value={{log, setLog, isSeller, setIsSeller}}>
+        <LogContext.Provider value={{log, setLog, isSeller, setIsSeller, email, setEmail}}>
           <Navbar log={log}/>
+          {console.log(log)};
           <Routes>
             <Route exact path="/" element={<LandingPage/>}></Route>
             <Route exact path="/login" element={<LoginPage/>}></Route>
             <Route exact path="/signUp" element={<SignUpPage/>}></Route>
             <Route exact path="/profile" element={<Profile/>}></Route>
+            <Route exact path="/product/:productId" element={<ProductDetails/>}></Route>
           </Routes>
           <FooterBody />
         </LogContext.Provider>
