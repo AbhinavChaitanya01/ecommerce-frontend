@@ -20,8 +20,7 @@ function App() {
     <div>
       <Router>
         <LogContext.Provider value={{log, setLog, isSeller, setIsSeller, email, setEmail}}>
-          <Navbar log={log}/>
-          {console.log(log)};
+          <Navbar log={log} setLog={setLog}/>
           <Routes>
             <Route exact path="/" element={<LandingPage/>}></Route>
             <Route exact path="/login" element={<LoginPage/>}></Route>
